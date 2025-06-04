@@ -1,6 +1,6 @@
 import random
 import string
-from typing import Protocol
+from typing import Protocol, Awaitable
 import asyncio
 
 from .message import Message, MessageType
@@ -19,7 +19,7 @@ class Device(Protocol):
     def disconnect(self) -> None:
         ...
 
-    def send_message(self, message_type: MessageType, data: str) -> None:
+    def send_message(self, message_type: MessageType, data: str) -> Awaitable[None]:
         ...
 
 
